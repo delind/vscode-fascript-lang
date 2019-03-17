@@ -1,0 +1,25 @@
+{
+    "name": "fascript-lang",
+    "displayName": "Fascript-Lang",
+    "description": "Syntax highlighting for fascript lang",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.20.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "fascript",
+            "aliases": ["Fascript", "fascript"],
+            "extensions": [".fascript"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "fascript",
+            "scopeName": "source.fascript",
+            "path": "./syntaxes/fascript.tmLanguage.json"
+        }]
+    }
+}

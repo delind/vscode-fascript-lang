@@ -1,0 +1,68 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Fascript",
+	"patterns": [
+		{ "include": "#statement" }
+	],
+	"repository": {
+		"statement-keyword": {
+			"patterns": [
+				{
+				"name": "keyword.control.flow.fascript",
+				"match": "\\b(label|branch)\\b"
+				},
+				{
+				"name": "keyword.control.barrier.fascript",
+				"match": "\\b(wtrig|end)\\b"
+				},
+				{
+					"name": "entity.name.function.fascript",
+					"match": "\\b(bufsel|dwell|nextb|tx|rx)\\b"
+				}
+			]
+		},	
+		"comment": {
+			"name": "comment.line.fascript",
+			"begin": "\\#",
+			"end": "($)",
+			"patterns": [
+				{ "include": "#codetags" }
+			]
+		},
+		"number": {
+			"name": "constant.numeric.fascript",
+			"patterns": [
+				{
+					"name": "constant.numeric.dec.fascript",
+					"match": "\\b[+-]?[0-9][0-9]*"
+				}
+			]
+		},
+		"codetags": {
+			"match": "(?:\\b(NOTE|XXX|HACK|FIXME|BUG|TODO)\\b)",
+			"captures": {
+				"1": {
+					"name": "keyword.codetag.notation.fascript"
+				}
+			},
+			"patterns": []
+		},		
+		"statement": {
+			"name": "statement",
+			"begin": "^",
+			"end": "$",
+			"beginCaptures": {
+				"0": { "name": "statement.open" }
+			},
+			"endCaptures": {
+				"0": { "name": "statement.close" }
+			},
+			"patterns": [
+				{ "include": "#statement-keyword" },
+				{ "include": "#comment" },
+				{ "include": "#number" }
+			]
+		}		
+	},
+	"scopeName": "source.fascript"
+}
