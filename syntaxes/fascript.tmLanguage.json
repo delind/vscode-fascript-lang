@@ -17,10 +17,10 @@
 				},
 				{
 					"name": "entity.name.function.fascript",
-					"match": "\\b(bufsel|dwell|nextb|tx|rx)\\b"
+					"match": "\\b(bufsel|dwell|nextb|tx|rx|delay|ddc|duc)\\b"
 				}
 			]
-		},	
+		},
 		"comment": {
 			"name": "comment.line.fascript",
 			"begin": "\\#",
@@ -46,7 +46,7 @@
 				}
 			},
 			"patterns": []
-		},		
+		},
 		"statement": {
 			"name": "statement",
 			"begin": "^",
@@ -62,7 +62,7 @@
 				{ "include": "#comment" },
 				{ "include": "#number" }
 			]
-		}		
+		}
 	},
 	"scopeName": "source.fascript"
 }
